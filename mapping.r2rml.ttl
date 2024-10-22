@@ -1,0 +1,21 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX otd: <https://lod.opentransportdata.swiss/vocab/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+<Zonenplan>
+	a rr:TriplesMap;
+	
+	rr:logicalTable [ rr:tableName "zonen" ];
+	
+	rr:subjectMap [
+		rr:template "https://lod.opentransportdata.swiss/zoningplan/{verbund_code}/{zonenplan_code}";
+		rr:class otd:ZoningPlan
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+		rr:objectMap [
+			rr:column "zonenplan_code"
+		]
+	].
+	
